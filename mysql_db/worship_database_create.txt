@@ -1,0 +1,20 @@
+CREATE TABLE `ojt`.`cmm_worship` (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`category` VARCHAR( 500 ) NULL ,
+`title` VARCHAR( 500 ) NOT NULL ,
+`bible_index` VARCHAR( 500 ) NULL ,
+`bible` TEXT NULL ,
+`recitation_bible_index` VARCHAR( 500 ) NULL ,
+`recitation_bible` TEXT NULL ,
+`youtube_url` VARCHAR( 500 ) NULL ,
+`soundcloud_url` VARCHAR( 500 ) NULL ,
+`main_bible_image` VARCHAR( 100 ) NULL ,
+`main_video_image` VARCHAR( 100 ) NULL ,
+`video_image` VARCHAR( 100 ) NULL ,
+`text_file` VARCHAR( 100 ) NULL ,
+`jubo_file_01` VARCHAR( 100 ) NULL ,
+`jubo_file_02` VARCHAR( 100 ) NULL ,
+`jubo_file_03` VARCHAR( 100 ) NULL ,
+ worship_date timestamp ,
+INDEX ( `category` )
+) ENGINE = MYISAM ;

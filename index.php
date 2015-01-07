@@ -83,7 +83,7 @@
 			-->
 	        
 	        <a href="#" class="block-products-list-item-icon" style="float:left;padding-bottom:10px">
-	            <img src="" />
+	            <img src="./images/preaching.gif" />
 	        </a>
 	        
 	        <img src="./images/main/main_link.jpg" alt="Replay" usemap="#replay_map">
