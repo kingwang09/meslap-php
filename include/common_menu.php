@@ -45,21 +45,21 @@ $(document).ready(function(){
 <!-- Meslap Logo -->
 <div class="wrapper">
 	<div class="site-navigation-item">
-	    <a href="#"><img src="./images/main/logo.jpg" alt="Meslap Logo" /></a>
+	    <a href="index.php"><img src="./images/main/logo.jpg" alt="Meslap Logo" /></a>
 	</div>
 	<!-- About Meslap -->
 	<div class="site-navigation-item site-navigation-about-meslap" style="padding-left:60px">
 	    <span id="stanardPosition" class="site-navigation-about-meslap">
-	        <a href="#"><img class="mainMenu hoverImages" src="./images/main/main_menu_about_meslap.jpg" imgName="main_menu_about_meslap" alt="AboutMeslap" menuId="aboutMenu" /></a>
+	        <a href="about_intro.php"><img class="mainMenu hoverImages" src="./images/main/main_menu_about_meslap.jpg" imgName="main_menu_about_meslap" alt="AboutMeslap" menuId="aboutMenu" /></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-about-meslap" id="aboutMenu">            
 	        <img src="./images/main/roll_about_meslap.jpg" usemap="#about_map"/>
 	        <map name="about_map">
-	        	<area shape="rect" coords="187,125,225,154" href="#/about/gospel.do" alt="replay_movie">
-	            <area shape="rect" coords="232,125,290,154" href="#/about/intro.do" alt="replay_movie">
-	            <area shape="rect" coords="297,125,354,154" href="#/about/members.do" alt="replay_audio">
-	            <area shape="rect" coords="361,125,419,154" href="#/about/times.do" alt="replay_audio">
-	            <area shape="rect" coords="427,125,492,154" href="#/about/road.do" alt="replay_audio">
+	        	<area shape="rect" coords="187,125,225,154" href="about_gospel.php" alt="말씀">
+	            <area shape="rect" coords="232,125,290,154" href="about_intro.php" alt="교회소개">
+	            <area shape="rect" coords="297,125,354,154" href="about_members.php" alt="교인등록">
+	            <area shape="rect" coords="361,125,419,154" href="about_times.php" alt="예배시간">
+	            <area shape="rect" coords="427,125,492,154" href="about_road.php" alt="오시는길">
 	        </map>
 	    </div>
 	</div>
@@ -79,13 +79,13 @@ $(document).ready(function(){
 	<!-- Mission -->
 	<div class="site-navigation-item site-navigation-mission-meslap">
 	    <span class="site-navigation-mission-meslap">
-	        <a href="#/mission/intro.do"><img class="mainMenu hoverImages" src="./images/main/main_menu_mission_meslap.jpg" imgName="main_menu_mission_meslap" alt="MissionMeslap" menuId="missionMenu" /></a>
+	        <a href="mission_intro.php"><img class="mainMenu hoverImages" src="./images/main/main_menu_mission_meslap.jpg" imgName="main_menu_mission_meslap" alt="MissionMeslap" menuId="missionMenu" /></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-mission-meslap" id="missionMenu">            
 	        <img src="./images/main/roll_mission_meslap.jpg" usemap="#mission_map"/>
 	        <map name="mission_map">
-	            <area shape="rect" coords="186,145,263,174" href="#/mission/intro.do" alt="replay_movie">
-	            <area shape="rect" coords="269,145,319,174" href="#/mission/gallery.do" alt="replay_audio">
+	            <area shape="rect" coords="186,145,263,174" href="mission_intro.php" alt="replay_movie">
+	            <area shape="rect" coords="269,145,319,174" href="mission_gallery.php" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>

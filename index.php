@@ -105,6 +105,6 @@
 	</div>
 </div>
 <!-- 하단 주소 -->
-<?//include("./include/common_bottom.php")?>
+<?include("./include/common_footer.php")?>
 </body>
 </html>
