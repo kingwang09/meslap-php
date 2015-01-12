@@ -87,6 +87,7 @@ function viewPage(rid){
 	             </div>
 	             <div style="word-break: break-all">
 	                 <?echo $row["bible_index"];?> <br/><small><?echo date('Y-m-d', strtotime($row["worship_date"]))?></small>
+					 <!--
 	                 <div class="pull-right" style="padding-right:15px">
 	                 	 <c:if test="${!empty w.audioFileName}">
 	                     	<span><a href="${cp}/worship/download.do?fileName=${w.audioFileName}"><img class="hoverImages" imgName="bt_audio" src="${cp}/images/main/bt_audio.jpg"/></a></span>
@@ -95,6 +96,7 @@ function viewPage(rid){
 	                     	<span><a href="${cp}/worship/download.do?fileName=${w.textFileName}"><img class="hoverImages" imgName="bt_ebook" src="${cp}/images/main/bt_ebook.jpg"/></a></span>
 	                     </c:if>
 	                 </div>
+					 -->
 	             </div>
 	         </div>
 	     </div>

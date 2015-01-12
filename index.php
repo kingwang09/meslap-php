@@ -52,17 +52,17 @@
  <!-- 메인 배너 하단 메뉴 - 1st --> 
  	<ul class="init-ul">
  		<li class="init-li">
- 			<a href="#" style="padding-right:10px">
+ 			<a href="about_intro.php" style="padding-right:10px">
 				<img src="./images/body_menu_about_meslap.gif" alt="AboutMeslap" />
 			</a>
  		</li>
  		<li class="init-li">
- 			<a href="#" style="padding-right:10px">
+ 			<a href="worship_view.php" style="padding-right:10px">
 	            <img src="./images/body_menu_worship.gif" alt="Worship" />
 	        </a>
  		</li>
  		<li class="init-li">
- 			<a href="#" style="padding-right:10px">
+ 			<a href="mission_intro.php" style="padding-right:10px">
 	            <img src="./images/body_menu_mission.gif" alt="Mission" />
 	        </a>
  		</li>
@@ -82,7 +82,7 @@
 	        <img src="${cp}/worshipFiles/${recentWorship.mainBibleImageFileName}" style="float:left;padding-right:10px"/>
 			-->
 	        
-	        <a href="#" class="block-products-list-item-icon" style="float:left;padding-bottom:10px">
+	        <a href="worship_view.php" class="block-products-list-item-icon" style="float:left;padding-bottom:10px">
 	            <img src="./worship/main/20150111_main_video.jpg" />
 	        </a>
 	        
@@ -94,11 +94,11 @@
 	        </map>
 		</div>
 		<div class="sub-banner-body-right">
-	       <a href="#"><img src="./images/good_news.jpg" alt="GoodNews" style="float:left;padding-right:10px"/></a>
+	       <a href="about_gospel.php"><img src="./images/good_news.jpg" alt="GoodNews" style="float:left;padding-right:10px"/></a>
 	       
-		   <a href="#"><img src="./images/worship_time_table.gif" alt="WorshipTimeTable" style="float:left;padding-bottom:10px"/></a>
+		   <a href="about_times.php"><img src="./images/worship_time_table.gif" alt="WorshipTimeTable" style="float:left;padding-bottom:10px"/></a>
 	       
-	       <a href="#" class="block-products-list-item-icon" style="float:left">
+	       <a href="about_road.php" class="block-products-list-item-icon" style="float:left">
 	           <img src="./images/location.gif" alt="Location" />
 	       </a>
 		</div>
