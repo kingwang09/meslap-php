@@ -68,7 +68,7 @@
 			swal("알림","현재 보시는 말씀이 처음 말씀입니다.","info");
 		}else{
 			var form = document.worshipForm;
-			form.rId.value = rid;
+			form.rId.value = rId;
 			form.submit();	
 		}
 	}
@@ -96,9 +96,9 @@
 		<a href="javascript:viewPage('<?echo $row["rowId"]+1;?>');" style="padding-right:30px"><img src="./images/worship/left.jpg" /></a>
 		<a href="javascript:viewPage('<?echo $row["rowId"]-1;?>');"><img src="./images/worship/right.jpg" /></a>
 		<div style="padding-top:34px">
-			<div class="h4"><b><?echo $row["title"]?></b></div> <!-- Title 말씀제목 -->
+			<div class="h4"><b><?echo str_replace("\n","<br/>",$row["title"]);?></b></div> <!-- Title 말씀제목 -->
 			<div class="h5"><b><?echo $row["bible_index"]?></b></div> <!-- sub 말씀구절 -->
-			<small><?echo $row["worship_date"]?></small>     <!-- 날짜 -->
+			<small><?echo date('Y-m-d', strtotime($row["worship_date"]))?></small>     <!-- 날짜 -->
 		</div>
 		<div style="padding-top:25px">
 			<div class="h5" style="width:95px;background-color:#5a7296;color:white;font-size:16px;height:20px">한주 암송구절</div>
