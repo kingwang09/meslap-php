@@ -66,12 +66,12 @@ $(document).ready(function(){
 	<!-- Worship -->
 	<div class="site-navigation-item site-navigation-worship-meslap">
 	    <span class="site-navigation-worship-meslap">
-	        <a href="#/worship/view.do"><img class="mainMenu hoverImages" src="./images/main/main_menu_worship_meslap.jpg" imgName="main_menu_worship_meslap" alt="WorshipMeslap" menuId="worshipMenu"/></a>
+	        <a href="worship_view.php"><img class="mainMenu hoverImages" src="./images/main/main_menu_worship_meslap.jpg" imgName="main_menu_worship_meslap" alt="WorshipMeslap" menuId="worshipMenu"/></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-worship-meslap" id="worshipMenu">            
 	        <img src="./images/main/roll_worship_meslap.jpg" usemap="#worship_map"/>
 	        <map name="worship_map">
-	            <area shape="rect" coords="186,124,251,154" href="${cp}/worship/view.do" alt="replay_movie">
+	            <area shape="rect" coords="186,124,251,154" href="worship_view.php" alt="replay_movie">
 	            <area shape="rect" coords="259,124,347,154" href="${cp}/board/bibleStudy/list.do" alt="replay_audio">
 	        </map>
 	    </div>

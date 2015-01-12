@@ -31,7 +31,7 @@
     
      <div class="item">
          <div style="width:100%;text-align:center">
-         	<img src="./images/main/banner_20141228_03.jpg" alt="..." >
+         	<img src="./images/main/banner_20150111.jpg" alt="..." >
          </div>
          <div class="carousel-caption">
          </div>
@@ -77,13 +77,13 @@
 	<div class="sub-banner-body">
 		<div class="sub-banner-body-left">
 			<!-- Weekly Bible : 매주 암송말씀 -->
-			<img src="./images/weekly_bible.gif" alt="WeeklyBible" style="float:left;padding-right:10px"/>
+			<img src="./worship/main/20150111_main_bible.jpg" alt="WeeklyBible" style="float:left;padding-right:10px"/>
 			<!--
 	        <img src="${cp}/worshipFiles/${recentWorship.mainBibleImageFileName}" style="float:left;padding-right:10px"/>
 			-->
 	        
 	        <a href="#" class="block-products-list-item-icon" style="float:left;padding-bottom:10px">
-	            <img src="./images/preaching.gif" />
+	            <img src="./worship/main/20150111_main_video.jpg" />
 	        </a>
 	        
 	        <img src="./images/main/main_link.jpg" alt="Replay" usemap="#replay_map">

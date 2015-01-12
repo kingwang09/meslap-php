@@ -61,7 +61,7 @@
 	//Jubo Image's
 	$jubo01ImageFileName = $uploadJuboPath.basename($juboFile01["name"]);
 	$jubo02ImageFileName = $uploadJuboPath.basename($juboFile02["name"]);
-	$jubo03ImageFileName = $uploadJuboPath.basename($juboFile02["name"]);
+	$jubo03ImageFileName = $uploadJuboPath.basename($juboFile03["name"]);
 	
 	move_uploaded_file($juboFile01['tmp_name'], $jubo01ImageFileName);
 	move_uploaded_file($juboFile02['tmp_name'], $jubo02ImageFileName);

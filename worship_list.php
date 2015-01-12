@@ -64,6 +64,7 @@
 		</tbody>	
 	</table>
 </div>
+
 <?$db = null;?>
 <!-- 하단 주소 -->
 <?include("./include/common_footer.php")?>
