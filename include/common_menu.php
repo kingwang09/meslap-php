@@ -72,7 +72,7 @@ $(document).ready(function(){
 	        <img src="./images/main/roll_worship_meslap.jpg" usemap="#worship_map"/>
 	        <map name="worship_map">
 	            <area shape="rect" coords="186,124,251,154" href="worship_view.php" alt="replay_movie">
-	            <area shape="rect" coords="259,124,347,154" href="${cp}/board/bibleStudy/list.do" alt="replay_audio">
+	            <area shape="rect" coords="259,124,347,154" href="board_bible.php" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>
@@ -92,12 +92,12 @@ $(document).ready(function(){
 	<!-- News -->
 	<div class="site-navigation-item site-navigation-news-meslap" style="padding-right:30px">
 	    <span class="site-navigation-news-meslap">
-	        <a href="#/board/notice/list.do"><img class="mainMenu hoverImages" src="./images/main/main_menu_news_meslap.jpg" imgName="main_menu_news_meslap" alt="NewsMeslap" menuId="newsMenu" /></a>
+	        <a href="board_notice.php"><img class="mainMenu hoverImages" src="./images/main/main_menu_news_meslap.jpg" imgName="main_menu_news_meslap" alt="NewsMeslap" menuId="newsMenu" /></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-news-meslap" id="newsMenu">            
 	        <img src="./images/main/roll_news_meslap.jpg" usemap="#news_map"/>
 	        <map name="news_map">
-	            <area shape="rect" coords="186,124,252,154" href="#/board/notice/list.do" alt="replay_movie">
+	            <area shape="rect" coords="186,124,252,154" href="board_notice.php" alt="replay_movie">
 	        </map>
 	    </div>
 	</div>

@@ -77,8 +77,8 @@
 <div class="subTitle">
 	<img src="./images/worship/worship_submenu01.jpg" usemap="#worship_sub_map"/>
 	<map name="worship_sub_map">
-    	<area shape="rect" coords="0,56,61,76" href="#/worship/view.do" alt="말씀">
-        <area shape="rect" coords="67,56,151,76" href="#/board/bibleStudy/list.do" alt="성경공부자료">
+    	<area shape="rect" coords="0,56,61,76" href="worship_view.php" alt="말씀">
+        <area shape="rect" coords="67,56,151,76" href="board_bible.php" alt="성경공부자료">
     </map>
 </div>
 <div class="line_1px"></div>

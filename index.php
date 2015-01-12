@@ -67,7 +67,7 @@
 	        </a>
  		</li>
  		<li class="init-li">
- 			<a href="#">
+ 			<a href="board_notice.php">
 	            <img src="./images/body_menu_news.gif" alt="News" />
 	        </a>
  		</li>
