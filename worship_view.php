@@ -18,13 +18,12 @@
 	//Worship Logic
 	$db = new PDO($dsn, $user, $pass);
 
-	$countSql = "SELECT COUNT(ID) AS cnt FROM CMM_WORSHIP";
+	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship";
 	$countStmt = $db->prepare($countSql);
 	$countStmt->execute();
-	$countRow = $countStmt->fetch();
+	$countRow = $countStmt->fetch(PDO::FETCH_ASSOC);
 	$worshipCount = $countRow["cnt"];
 
-	
 	$sql =	"SELECT *
 				FROM (SELECT c.*, 
 					@rownum := @rownum + 1 AS rowId
@@ -73,7 +72,6 @@
 		}
 	}
   </script>
-<br/>
 <div class="subTitle">
 	<img src="./images/worship/worship_submenu01.jpg" usemap="#worship_sub_map"/>
 	<map name="worship_sub_map">

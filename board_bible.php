@@ -23,7 +23,7 @@
 	<div>
 		<img src="./images/copyright.jpg" />
 	</div>
-	<iframe src="http://localhost/xe/bibleStudy" width="100%" height="600px" frameborder="no"/>
+	<iframe src="http://kingwang09.cafe24.com/xe/bible" width="100%" height="600px" frameborder="no"/>
 </div>
 <!-- 하단 주소 -->
 <?include("./include/common_footer.php")?>

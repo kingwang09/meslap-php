@@ -8,8 +8,8 @@
 <div class="subTitle">
 	<img src="./images/mission/mission_submenu01.jpg" usemap="#mission_sub_map"/>
 	<map name="mission_sub_map">
-     	<area shape="rect" coords="0,56,71,76" href="mission_intro.do" alt="미션 소개">
-        <area shape="rect" coords="78,56,125,76" href="mission_gallery.do" alt="갤러리">
+     	<area shape="rect" coords="0,56,71,76" href="mission_intro.php" alt="미션 소개">
+        <area shape="rect" coords="78,56,125,76" href="mission_gallery.php" alt="갤러리">
     </map>
 </div>
 <div class="line_1px"></div>

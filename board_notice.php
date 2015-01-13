@@ -16,7 +16,7 @@
 </div>
 <div class="line_1px"></div>
 <div class="content" style="height:650px">
-	<iframe src="http://localhost/xe/notice" width="100%" height="600px" frameborder="no"/>
+	<iframe src="http://kingwang09.cafe24.com/xe/notice" width="100%" height="600px" frameborder="no"/>
 </div>
 <!-- 하단 주소 -->
 <?include("./include/common_footer.php")?>

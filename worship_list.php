@@ -22,7 +22,7 @@
 		die("Connection fail : ".$error->getMessage());
 	}
 	
-	$countSql = "SELECT COUNT(ID) AS cnt FROM CMM_WORSHIP";
+	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship";
 	$countStmt = $db->prepare($countSql);
 	$countStmt->execute();
 	$countRow = $countStmt->fetch();
