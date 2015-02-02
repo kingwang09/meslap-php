@@ -79,7 +79,7 @@
 					<td><?echo $row["category"];?></td>
 					<td width="10"><?echo $row["id"];?></td>
 					<td width="10"><?echo $row["rowId"];?></td>
-					<td width="300" align="left"><a href="${cp}/worship/view.do?id=${worship.id}"><?echo $row["title"];?></a></td>
+					<td width="300" align="left"><a href="worship_update.php?id=<?echo $row["id"];?>"><?echo $row["title"];?></a></td>
 					<td><?echo date('Y-m-d',strtotime($row["worship_date"]));?></td>
 
 					<td>

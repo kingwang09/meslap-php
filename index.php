@@ -4,7 +4,8 @@
   <?include("./include/common_header.php")?>
   <script>
   function popupMobileAudio(){
-	  window.open('${cp}/sermon.htm', 'audio', 'height=600px,width=385px');
+	  //window.open('${cp}/sermon.htm', 'audio', 'height=600px,width=385px');
+	  alert("아직 준비중입니다. ^^");
   }
   </script>
 </head>
@@ -73,17 +74,28 @@
  		</li>
  	</ul>
 </div>
+<?include("./include/db_connection.php")?>
+<?
+	$db = new PDO($dsn, $user, $pass);
+
+	$sql = "SELECT * FROM cmm_worship order by worship_date desc limit 1";
+	$statement = $db->prepare($sql);
+	$statement->execute();
+	$row = $statement->fetch(PDO::FETCH_ASSOC);
+?>
 <div class="sub-banner">
 	<div class="sub-banner-body">
 		<div class="sub-banner-body-left">
-			<!-- Weekly Bible : 매주 암송말씀 -->
+			<!-- Weekly Bible : 매주 암송말씀 
 			<img src="./worship/main/20150111_main_bible.jpg" alt="WeeklyBible" style="float:left;padding-right:10px"/>
+			-->
+			<img src="./worship/main/<?echo $row["main_bible_image"]?>" alt="WeeklyBible" style="float:left;padding-right:10px"/>
 			<!--
 	        <img src="${cp}/worshipFiles/${recentWorship.mainBibleImageFileName}" style="float:left;padding-right:10px"/>
 			-->
 	        
 	        <a href="worship_view.php" class="block-products-list-item-icon" style="float:left;padding-bottom:10px">
-	            <img src="./worship/main/20150111_main_video.jpg" />
+	            <img src="./worship/main/<?echo $row["main_video_image"]?>" />
 	        </a>
 	        
 	        <img src="./images/main/main_link.jpg" alt="Replay" usemap="#replay_map">
@@ -104,6 +116,7 @@
 		</div>
 	</div>
 </div>
+<?$db = null;?>
 <!-- 하단 주소 -->
 <?include("./include/common_footer.php")?>
 </body>

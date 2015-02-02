@@ -4,9 +4,8 @@
 <body>
 <?include("./include/db_connection.php")?>
 <?
-	
-	$mainBibleImage = $_FILES["mainBibleImage"];
-	$mainVideoImage = $_FILES["mainVideoImage"];
+	$id = $_POST["id"];
+
 	$category = $_POST["category"];
 	$title = $_POST["title"];
 	$bibleIndex = $_POST["bibleIndex"];
@@ -16,6 +15,9 @@
 	$youtubeUrl = $_POST["youtubeUrl"];
 	$soundCloudUrl = $_POST["soundCloudUrl"];
 	$videoImage = $_FILES["videoImage"];
+
+	$mainBibleImage = $_FILES["mainBibleImage"];
+	$mainVideoImage = $_FILES["mainVideoImage"];
 	$textFile = $_FILES["textFile"];
 	$juboFile01 = $_FILES["juboFile01"];
 	$juboFile02 = $_FILES["juboFile02"];
@@ -82,7 +84,25 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$db->beginTransaction();
 		//map
-		$statement = $db->prepare("insert into cmm_worship(category, title, bible_index, bible, recitation_bible_index, recitation_bible, youtube_url, soundcloud_url, main_bible_image, main_video_image, video_image, text_file, jubo_file_01, jubo_file_02, jubo_file_03, worship_date) values(:category, :title, :bibleIndex, :bible, :recitationBibleIndex, :recitationBible, :youtubeUrl, :soundCloudUrl, :mainBibleImage, :mainVideoImage, :videoImage, :textFile, :juboFile01, :juboFile02, :juboFile03, :worshipDate)");
+		$statement = $db->prepare("update cmm_worship
+			set 
+			category=:category, 
+			title=:title, 
+			bible_index=:bibleIndex, 
+			bible=:bible, 
+			recitation_bible_index=:recitationBibleIndex, 
+			recitation_bible=:recitationBible, 
+			youtube_url=:youtubeUrl, 
+			soundcloud_url=:soundCloudUrl, 
+			main_bible_image=:mainBibleImage, 
+			main_video_image=:mainVideoImage, 
+			video_image=:videoImage, 
+			text_file=:textFile, 
+			jubo_file_01=:juboFile01, 
+			jubo_file_02=:juboFile02, 
+			jubo_file_03=:juboFile03, 
+			worship_date=:worshipDate
+			where id=:id");
 		$statement->execute(array(
 			'category'=>$category,
 			'title'=>$title,
@@ -99,7 +119,8 @@
 			'juboFile01'=>$juboFile01["name"],
 			'juboFile02'=>$juboFile02["name"],
 			'juboFile03'=>$juboFile03["name"],
-			'worshipDate'=>$worshipDate
+			'worshipDate'=>$worshipDate,
+			'id'=>$id
 			)
 		);
 		$db->commit();
@@ -107,7 +128,7 @@
 		$db->rollback();
 		echo "Transaction not Complete : ".$error->getMessage();
 	}
-	echo "success!!!";
+	echo "<script>location.href='worship_update.php?id='".$id."</script>";
 ?>
 </body>
 </html>
