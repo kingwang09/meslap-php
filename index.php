@@ -7,6 +7,10 @@
 	  //window.open('${cp}/sermon.htm', 'audio', 'height=600px,width=385px');
 	  alert("아직 준비중입니다. ^^");
   }
+  function popupNotice(url){
+	
+		window.open(url, 'notice', 'height=400px,width=655px');
+  }
   </script>
 </head>
 <body>
@@ -16,20 +20,22 @@
  <!-- Indicators -->
  <ol class="carousel-indicators">
      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+     <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
  </ol>
 
  <!-- Wrapper for slides -->
  <div class="carousel-inner">
      <div class="item active">
      	 <div style="width:100%;text-align:center">
-         	<img src="./images/main/banner_20141228_01.jpg" alt="...">
+			<a href="javascript:popupNotice('http://kingwang09.cafe24.com/xe/notice/111');">
+         	<img src="./images/main/20150322_main_banner.jpg" alt="...">
+			</a>
          </div>
          <div class="carousel-caption">
 
          </div>
      </div>
-    
+    <!--
      <div class="item">
          <div style="width:100%;text-align:center">
          	<img src="./images/main/banner_20150111.jpg" alt="..." >
@@ -37,6 +43,7 @@
          <div class="carousel-caption">
          </div>
      </div>
+	-->
  </div>
 
  <!-- Controls
