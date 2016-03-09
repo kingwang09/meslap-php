@@ -4,8 +4,8 @@
   <?include("./include/common_header.php")?>
   <script>
   function popupMobileAudio(){
-	  //window.open('${cp}/sermon.htm', 'audio', 'height=600px,width=385px');
-	  alert("아직 준비중입니다. ^^");
+	  window.open('./mobile/sermon.htm', 'audio', 'height=450px,width=1100px');
+	  //alert("아직 준비중입니다. ^^");
   }
   function popupNotice(url){
 	
@@ -19,22 +19,55 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
  <!-- Indicators -->
  <ol class="carousel-indicators">
-     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-     <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+	 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
  </ol>
 
  <!-- Wrapper for slides -->
  <div class="carousel-inner">
+	 
+	 <!--해피데이
+	 <div class="item active">
+     	 <div style="width:100%;text-align:center">
+         	
+         	<img src="./images/main/20151227_main_banner_01.jpg" alt="...">
+			
+         </div>
+         <div class="carousel-caption">
+
+         </div>
+     </div>
+	-->
+	 <div class="item active">
+     	 <div style="width:100%;text-align:center">
+         	<img src="./images/main/20151230_main_banner.jpg" alt="...">
+         </div>
+         <div class="carousel-caption">
+
+         </div>
+     </div>
+	 
+	 <div class="item">
+     	 <div style="width:100%;text-align:center">
+         	<img src="./images/main/20151227_main_banner_03.jpg" alt="...">
+         </div>
+         <div class="carousel-caption">
+
+         </div>
+     </div>
+	 
+	 <!--
      <div class="item active">
      	 <div style="width:100%;text-align:center">
-			<a href="javascript:popupNotice('http://kingwang09.cafe24.com/xe/notice/111');">
-         	<img src="./images/main/20150322_main_banner.jpg" alt="...">
+			<a href="javascript:popupNotice('http://kingwang09.cafe24.com/xe/notice/112');">
+         	<img src="./images/main/20150405_main_banner.jpg" alt="...">
 			</a>
          </div>
          <div class="carousel-caption">
 
          </div>
      </div>
+	 -->
     <!--
      <div class="item">
          <div style="width:100%;text-align:center">

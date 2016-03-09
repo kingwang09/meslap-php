@@ -11,7 +11,7 @@
 </div>
 <div class="line_1px"></div>
 <div class="content">
-	<img src="./images/about/about_intro.jpg" />
+	<img src="./images/about/20150405_about_intro.jpg" />
 </div>
 <?include("./include/common_footer.php")?>
 </body>
