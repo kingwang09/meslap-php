@@ -19,8 +19,8 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
  <!-- Indicators -->
  <ol class="carousel-indicators">
+	 <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
 	 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
  </ol>
 
  <!-- Wrapper for slides -->
@@ -37,16 +37,18 @@
 
          </div>
      </div>
-	-->
+	
+	 -->
 	 <div class="item active">
      	 <div style="width:100%;text-align:center">
-         	<img src="./images/main/20151230_main_banner.jpg" alt="...">
+			<a href="javascript:popupNotice('http://meslap.com/xe/145');">
+				<img src="./images/main/20180208_banner.jpg" alt="...">
+			</a>
          </div>
          <div class="carousel-caption">
 
          </div>
      </div>
-	 
 	 <div class="item">
      	 <div style="width:100%;text-align:center">
          	<img src="./images/main/20151227_main_banner_03.jpg" alt="...">
@@ -79,14 +81,13 @@
 	-->
  </div>
 
- <!-- Controls
+ <!-- Controls-->
  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
      <span class="glyphicon glyphicon-chevron-left"></span>
  </a>
  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
      <span class="glyphicon glyphicon-chevron-right"></span>
  </a>
- -->
 </div>
 
 <div class="main-banner">
@@ -142,7 +143,7 @@
 	        <map name="replay_map">
 	            <area shape="rect" coords="14,46,158,94" href="http://www.youtube.com/channel/UCXUHra_EuT3T2vD8j3BDuJQ" alt="replay_movie">
 	            <area shape="rect" coords="174,46,308,94" href="javascript:popupMobileAudio()" alt="replay_audio">
-	            <area shape="rect" coords="322,46,476,94" href="http://www.cts.tv/progsm2/index.asp?PID=P264&DPID=46750&Order=" alt="cts_link">
+	            <area shape="rect" coords="322,46,476,94" href="http://www.cts.tv" alt="cts_link">
 	        </map>
 		</div>
 		<div class="sub-banner-body-right">

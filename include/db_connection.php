@@ -1,5 +1,5 @@
 <?
-	$dsn = "mysql:host=127.0.0.1;dbname=ojt";
-	$user = "ojt";
-	$pass = "ojt";
+	$dsn = "mysql:host=localhost;dbname=kingwang09";
+	$user = "kingwang09";
+	$pass = "wlsguddms88";
 ?>

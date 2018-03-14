@@ -87,8 +87,17 @@
 	</form>
 
 	<div class="worship-body-left">
-		<iframe width="100%" height="360" src="//www.youtube.com/embed/<?echo $row["youtube_url"]?>?feature=player_detailpage&wmode=opaque" frameborder="0" allowfullscreen></iframe>
-		
+		<?
+		if(empty($row["youtube_url"])){
+		?>
+			<img src="./images/empty_video.jpg" style="width:575px;height:360px"/>
+		<?
+		}else{
+		?>
+			<iframe width="100%" height="360" src="//www.youtube.com/embed/<?echo $row["youtube_url"]?>?feature=player_detailpage&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+		<?
+		}
+		?>
 	</div>
 	<div class="worship-body-right">
 		<a href="javascript:viewPage('<?echo $row["rowId"]+1;?>');" style="padding-right:30px"><img src="./images/worship/left.jpg" /></a>
@@ -104,14 +113,6 @@
             <?$row["recitation_bible_index"]?>
 		</div>
 		<div style="padding-top:25px">
-			<!--
-			<c:if test="${!empty worship.audioFileName}">
-             <a href="${cp}/worship/download.do?fileName=${worship.audioFileName}"><img class="hoverImages" imgName="top_bt_audio" src="./images/main/top_bt_audio.jpg"/></a>
-            </c:if>
-            <c:if test="${!empty worship.textFileName}">
-             <a href="${cp}/worship/download.do?fileName=${worship.textFileName}"><img class="hoverImages" imgName="top_bt_ebook" src="./images/main/top_bt_ebook.jpg"/></a>
-            </c:if>
-			-->
              <a href="#" id="juboBtn"><img class="hoverImages" imgName="top_bt_paper" src="./images/main/top_bt_paper.jpg" /></a>
          </div>
 	</div>

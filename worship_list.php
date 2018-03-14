@@ -113,7 +113,7 @@
 
 
 					<td>
-						<a href="javascript:deleteWorship('${worship.id}');"><i class="glyphicon glyphicon-trash"></i></a>
+						<a href="javascript:deleteWorship('<?echo $row["id"];?>');"><i class="glyphicon glyphicon-trash"></i></a>
 					</td>
 				</tr>
 				<?}?>
@@ -154,7 +154,13 @@
 		</ul>
 	</div>
 </div>
-
+<script>
+function deleteWorship(id){
+	if(confirm(id+"번째 말씀을 삭제하시겠습니까?")){
+		location.href="worship_delete_logic.php?"+id;
+	}
+}
+</script>
 <?$db = null;?>
 <!-- 하단 주소 -->
 <?include("./include/common_footer.php")?>
