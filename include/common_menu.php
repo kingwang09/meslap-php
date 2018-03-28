@@ -32,7 +32,6 @@ $(document).ready(function(){
 	
 	
 	$(".main-dropdown").mouseleave(function(){
-		console.log("mouseleave");
 		$(".main-dropdown").css({"visibility":"hidden"});
 	});
 	

@@ -121,7 +121,18 @@
     <div style="clear:both;padding-top:15px;padding-left:25px">
        <pre class="worship"><?echo $row["bible"]?></pre>
     </div>
-    
+	<?
+	if(!empty($row["worship_url"])){
+	?>
+		<!-- 찬양 Row -->
+		<br/>
+		<div style="clear:both;padding-top:15px;padding-left:25px">
+			<iframe width="575px" height="360" src="//www.youtube.com/embed/<?echo $row["worship_url"]?>?feature=player_detailpage&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+		</div>
+	<?
+	}
+	?>
+	
     <br/>
 </div>
 <!-- iFrame start -->

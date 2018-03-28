@@ -88,9 +88,15 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="youtubeUrl" class="col-sm-2 control-label">유투브 URL</label>
+				<label for="youtubeUrl" class="col-sm-2 control-label">말씀 유투브 URL</label>
 				<div class="col-sm-10">
 					<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control" value="<?echo $row["youtube_url"];?>"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="worshipUrl" class="col-sm-2 control-label">찬양 유투브 URL</label>
+				<div class="col-sm-10">
+					<input type="text" name="worshipUrl" id="worshipUrl" class="form-control"/>
 				</div>
 			</div>
 			<div class="form-group">

@@ -14,6 +14,7 @@
 	$recitationBibleIndex = $_POST["recitationBibleIndex"];
 	$recitationBible = $_POST["recitationBible"];
 	$youtubeUrl = $_POST["youtubeUrl"];
+	$worshipUrl = $_POST["worshipUrl"];
 	$soundCloudUrl = $_POST["soundCloudUrl"];
 	$videoImage = $_FILES["videoImage"];
 	$textFile = $_FILES["textFile"];
@@ -82,7 +83,7 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$db->beginTransaction();
 		//map
-		$statement = $db->prepare("insert into cmm_worship(category, title, bible_index, bible, recitation_bible_index, recitation_bible, youtube_url, soundcloud_url, main_bible_image, main_video_image, video_image, text_file, jubo_file_01, jubo_file_02, jubo_file_03, worship_date) values(:category, :title, :bibleIndex, :bible, :recitationBibleIndex, :recitationBible, :youtubeUrl, :soundCloudUrl, :mainBibleImage, :mainVideoImage, :videoImage, :textFile, :juboFile01, :juboFile02, :juboFile03, :worshipDate)");
+		$statement = $db->prepare("insert into cmm_worship(category, title, bible_index, bible, recitation_bible_index, recitation_bible, youtube_url, worship_url, soundcloud_url, main_bible_image, main_video_image, video_image, text_file, jubo_file_01, jubo_file_02, jubo_file_03, worship_date) values(:category, :title, :bibleIndex, :bible, :recitationBibleIndex, :recitationBible, :youtubeUrl, :worshipUrl, :soundCloudUrl, :mainBibleImage, :mainVideoImage, :videoImage, :textFile, :juboFile01, :juboFile02, :juboFile03, :worshipDate)");
 		$statement->execute(array(
 			'category'=>$category,
 			'title'=>$title,
@@ -91,6 +92,7 @@
 			'recitationBibleIndex'=>$recitationBibleIndex,
 			'recitationBible'=>$recitationBible,
 			'youtubeUrl'=>$youtubeUrl,
+			'worshipUrl'=>$worshipUrl,
 			'soundCloudUrl'=>$soundCloudUrl,
 			'mainBibleImage'=>$mainBibleImage["name"],
 			'mainVideoImage'=>$mainVideoImage["name"],

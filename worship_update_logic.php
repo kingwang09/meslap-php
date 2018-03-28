@@ -13,6 +13,7 @@
 	$recitationBibleIndex = $_POST["recitationBibleIndex"];
 	$recitationBible = $_POST["recitationBible"];
 	$youtubeUrl = $_POST["youtubeUrl"];
+	$worshipUrl = $_POST["worshipUrl"];
 	$soundCloudUrl = $_POST["soundCloudUrl"];
 	$videoImage = $_FILES["videoImage"];
 
@@ -92,7 +93,8 @@
 			bible=:bible, 
 			recitation_bible_index=:recitationBibleIndex, 
 			recitation_bible=:recitationBible, 
-			youtube_url=:youtubeUrl, 
+			youtube_url=:youtubeUrl,
+			worship_url=:worshipUrl, 
 			soundcloud_url=:soundCloudUrl, 
 			main_bible_image=:mainBibleImage, 
 			main_video_image=:mainVideoImage, 
@@ -111,6 +113,7 @@
 			'recitationBibleIndex'=>$recitationBibleIndex,
 			'recitationBible'=>$recitationBible,
 			'youtubeUrl'=>$youtubeUrl,
+			'worshipUrl'=>$worshipUrl,
 			'soundCloudUrl'=>$soundCloudUrl,
 			'mainBibleImage'=>$mainBibleImage["name"],
 			'mainVideoImage'=>$mainVideoImage["name"],
