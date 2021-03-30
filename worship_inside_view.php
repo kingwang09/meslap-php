@@ -7,6 +7,7 @@
 <?include("./include/db_connection.php")?>
 <?
 	$cPage = $_GET["cPage"];
+	$cCategory = $_GET["category"];
 	
 	if($cPage == null)
 	 $cPage = 1;
@@ -14,10 +15,15 @@
 	$pagePerPage = 5;	//페이징 개수
 	$rowIndex = ($cPage-1)*$rowPerPage;	//Row Index
 	
+	$whereSql = "";
+	if($cCategory != null){
+		$whereSql = $whereSql." where category='".$cCategory."' ";
+	}
+
 	//Worship Logic
 	$db = new PDO($dsn, $user, $pass);
 	
-	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship";
+	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship ".$whereSql;
 	$countStmt = $db->prepare($countSql);
 	$countStmt->execute();
 	$countRow = $countStmt->fetch();
@@ -36,12 +42,18 @@
 	$sql =	"SELECT *
 				FROM (SELECT c.*, 
 					@rownum := @rownum + 1 AS rowId
-					FROM cmm_worship c, (SELECT @rownum := 0) r
-					order by worship_date desc
+					FROM cmm_worship c, (SELECT @rownum := 0) r"
+					.$whereSql
+					." order by worship_date desc
 			)w limit ".$rowIndex.", 5";
 	$statement = $db->prepare($sql);
 	$statement->execute();
 	$worships = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	$categorySql =	"select category from cmm_worship group by category having category is not null";
+	$categoryStatement = $db->prepare($categorySql);
+	$categoryStatement->execute();
+	$categorys = $categoryStatement->fetchAll(PDO::FETCH_ASSOC);
 	//echo "test : ".$row["id"];
 ?>
 
@@ -52,19 +64,26 @@ function viewPage(rid){
 	form.rId.value = rid;
 	form.submit();
 }
+function changeCategory(){
+	var $selectedVal = $("#category option:selected").val();
+	alert($selectedVal);
+	location.href="./worship_inside_view.php?cPage=<?echo $cPage?>&category="+$selectedVal;
+}
 </script>
 <!-- iFrame start-->
 <div class="worship-content" style="padding-left:25px">
     <div class="row">
     	<div class="col-md-12">
 	    	<div class="pull-right">
-	            <select class="form-control">
+	            <select class="form-control" id="category" onChange="changeCategory()">
 	                <option>주제별 설교보기</option>
-	                <!--
-					<c:forEach var="category" items="${categorys}">
-	                	<option value="${category }">${category }</option>
-	                </c:forEach>
-					-->
+					<?foreach($categorys as $category){?>
+						<?if($category["category"] == $cCategory){?>
+							<option value="<?echo $category["category"]?>" selected><?echo $category["category"]?></option>
+						<?}else{?>
+							<option value="<?echo $category["category"]?>"><?echo $category["category"]?></option>
+						<?}?>
+					<?}?>
 	            </select>
 	        </div>
         </div>
@@ -93,7 +112,7 @@ function viewPage(rid){
     <?}?>
 	<div style="text-align:center">
 		<ul class='pagination'>
-		<li><a href="worship_inside_view.php?cPage=1">첫페이지</a></li>
+		<li><a href="worship_inside_view.php?cPage=1&category=<?echo $cCategory?>">첫페이지</a></li>
 		<?
 			if(($cPage-1) < 0){
 		?>
@@ -101,13 +120,13 @@ function viewPage(rid){
 		<?
 			}else{
 		?>
-			<li><a href="worship_inside_view.php?cPage=<?echo $cPage-1?>">&laquo;</a></li>
+			<li><a href="worship_inside_view.php?cPage=<?echo $cPage-1?>&category=<?echo $cCategory?>">&laquo;</a></li>
 		<?
 			}
 		?>
 		
 		<?for($page=$cPage;$page<=$pageEnd;$page++){?>
-			<li class="<?if($page==$cPage){?>active<?}?>"><a href="worship_inside_view.php?cPage=<?echo $page?>"><?echo $page?></a></li>
+			<li class="<?if($page==$cPage){?>active<?}?>"><a href="worship_inside_view.php?cPage=<?echo $page?>&category=<?echo $cCategory?>"><?echo $page?></a></li>
 		<?}?>
 
 		<?
@@ -117,11 +136,11 @@ function viewPage(rid){
 		<?
 			}else{
 		?>
-			<li><a href="worship_inside_view.php?cPage=<?echo $cPage+1?>">&raquo;</a></li>
+			<li><a href="worship_inside_view.php?cPage=<?echo $cPage+1?>&category=<?echo $cCategory?>">&raquo;</a></li>
 		<?
 			}
 		?>
-		<li><a href="worship_inside_view.php?cPage=<?echo $totalPage?>">마지막</a></li>
+		<li><a href="worship_inside_view.php?cPage=<?echo $totalPage?>&category=<?echo $cCategory?>">마지막</a></li>
 		</ul>
 	</div>
 </div>

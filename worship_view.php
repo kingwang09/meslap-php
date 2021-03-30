@@ -11,24 +11,33 @@
 <?
 	$rId = $_GET["rId"];
 	$cPage = $_GET["cPage"];
-	
-	if($cPage==null)
+	$cCategory = $_GET["category"];
+	if($cPage==null){
 		$cPage = 1;
+	}
+
+	$whereSql = "";
+	if($cCategory != null){
+		$whereSql = $whereSql." where category='".$cCategory."' ";
+	}
 	
 	//Worship Logic
 	$db = new PDO($dsn, $user, $pass);
 
-	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship";
+	
+	$countSql = "SELECT COUNT(ID) AS cnt FROM cmm_worship".$whereSql;
 	$countStmt = $db->prepare($countSql);
 	$countStmt->execute();
 	$countRow = $countStmt->fetch(PDO::FETCH_ASSOC);
 	$worshipCount = $countRow["cnt"];
 
 	$sql =	"SELECT *
-				FROM (SELECT c.*, 
-					@rownum := @rownum + 1 AS rowId
-					FROM cmm_worship c, (SELECT @rownum := 0) r
-					order by worship_date desc
+				FROM (SELECT c.*
+					,@rownum := @rownum + 1 AS rowId
+					,DATE_FORMAT( worship_date,  '%Y%m%d' ) AS jubo_name
+					FROM cmm_worship c, (SELECT @rownum := 0) r"
+					.$whereSql.
+					"order by worship_date desc
 			)w";
 	if($rId!=null){
 		$sql = $sql." where rowId=".$rId;
@@ -49,9 +58,9 @@
 
 		$("#juboBtn").magnificPopup({
 				items:[
-					{src:'./worship/jubo/<?echo $row["jubo_file_01"];?>'},
-					{src:'./worship/jubo/<?echo $row["jubo_file_02"];?>'},
-					{src:'./worship/jubo/<?echo $row["jubo_file_03"];?>'}
+					{src:'./worship/jubo/<?echo $row["jubo_name"];?>_1.gif'},
+					{src:'./worship/jubo/<?echo $row["jubo_name"];?>_2.gif'},
+					{src:'./worship/jubo/<?echo $row["jubo_name"];?>_3.gif'}
 				],
 				gallery:{
 					enabled:true
@@ -137,7 +146,7 @@
 </div>
 <!-- iFrame start -->
 <div class="ie7-wrapper">
-<iframe src="./worship_inside_view.php?cPage=<?echo $cPage?>" width="100%" height="780px" frameborder="no"></iframe>
+<iframe src="./worship_inside_view.php?cPage=<?echo $cPage?>&category=<?echo $cCategory?>" width="100%" height="780px" frameborder="no"></iframe>
 </div>
 
 <!-- iFrame start-->
