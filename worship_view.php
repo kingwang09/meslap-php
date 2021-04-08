@@ -11,14 +11,16 @@
 <?
 	$rId = $_GET["rId"];
 	$cPage = $_GET["cPage"];
-	$cCategory = $_GET["category"];
+	$cCategory = $_GET["cCategory"];
 	if($cPage==null){
 		$cPage = 1;
 	}
 
 	$whereSql = "";
+	$orderBySql = " order by id desc ";
 	if($cCategory != null){
 		$whereSql = $whereSql." where category='".$cCategory."' ";
+		$orderBySql = " order by id asc ";
 	}
 	
 	//Worship Logic
@@ -35,10 +37,10 @@
 				FROM (SELECT c.*
 					,@rownum := @rownum + 1 AS rowId
 					,DATE_FORMAT( worship_date,  '%Y%m%d' ) AS jubo_name
-					FROM cmm_worship c, (SELECT @rownum := 0) r"
-					.$whereSql.
-					"order by worship_date desc
-			)w";
+					FROM cmm_worship c, (SELECT @rownum := 0) r "
+					.$whereSql
+					.$orderBySql.
+			")w";
 	if($rId!=null){
 		$sql = $sql." where rowId=".$rId;
 	}else{
@@ -72,11 +74,12 @@
 	function viewPage(rId){
 		if(rId<=0){
 			swal("알림","현재 보시는 말씀이 최신 말씀입니다.","info");
-		}else if(rId>=<?echo $worshipCount?>){
+		}else if(rId><?echo $worshipCount?>){
 			swal("알림","현재 보시는 말씀이 처음 말씀입니다.","info");
 		}else{
 			var form = document.worshipForm;
 			form.rId.value = rId;
+			form.cCategory.value = "<?echo $cCategory?>";
 			form.submit();	
 		}
 	}
@@ -93,6 +96,7 @@
 	<form id="worshipForm" name="worshipForm" action="worship_view.php">
 		<input type="hidden" name="rId" value="<?echo $row["rowId"]?>" />
 		<input type="hidden" name="cPage" value="<?echo $cPage?>" />
+		<input type="hidden" name="cCategory" value="<?echo $cCategory?>" />
 	</form>
 
 	<div class="worship-body-left">

@@ -38,7 +38,7 @@
          </div>
      </div>
 	
-	 -->
+	 
 	 <div class="item active">
      	 <div style="width:100%;text-align:center">
 			<a href="javascript:popupNotice('http://meslap.com/xe/145');">
@@ -49,7 +49,8 @@
 
          </div>
      </div>
-	 <div class="item">
+	 -->
+	 <div class="item active">
      	 <div style="width:100%;text-align:center">
          	<img src="./images/main/20151227_main_banner_03.jpg" alt="...">
          </div>
@@ -81,10 +82,11 @@
 	-->
  </div>
 
- <!-- Controls-->
+ <!-- Controls -->
  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
      <span class="glyphicon glyphicon-chevron-left"></span>
  </a>
+
  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
      <span class="glyphicon glyphicon-chevron-right"></span>
  </a>
@@ -119,7 +121,7 @@
 <?
 	$db = new PDO($dsn, $user, $pass);
 
-	$sql = "SELECT * FROM cmm_worship order by worship_date desc limit 1";
+	$sql = "SELECT * FROM cmm_worship order by id desc limit 1";
 	$statement = $db->prepare($sql);
 	$statement->execute();
 	$row = $statement->fetch(PDO::FETCH_ASSOC);

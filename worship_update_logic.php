@@ -103,7 +103,8 @@
 			jubo_file_01=:juboFile01, 
 			jubo_file_02=:juboFile02, 
 			jubo_file_03=:juboFile03, 
-			worship_date=:worshipDate
+			worship_date=:worshipDate,
+			worship_date_str=:worshipDateStr
 			where id=:id");
 		$statement->execute(array(
 			'category'=>$category,
@@ -123,6 +124,7 @@
 			'juboFile02'=>$juboFile02["name"],
 			'juboFile03'=>$juboFile03["name"],
 			'worshipDate'=>$worshipDate,
+			'worshipDateStr'=>$worshipDate,
 			'id'=>$id
 			)
 		);

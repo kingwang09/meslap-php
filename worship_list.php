@@ -34,7 +34,7 @@
 				FROM (SELECT c.*, 
 					@rownum := @rownum + 1 AS rowId
 					FROM cmm_worship c, (SELECT @rownum := 0) r
-					order by worship_date desc
+					order by id desc
 			)w limit ".$rowIndex.",".$rowPerPage;
 
 	$statement = $db->prepare($sql);
@@ -80,7 +80,7 @@
 					<td width="10"><?echo $row["id"];?></td>
 					<td width="10"><?echo $row["rowId"];?></td>
 					<td width="300" align="left"><a href="worship_update.php?id=<?echo $row["id"];?>"><?echo $row["title"];?></a></td>
-					<td><?echo date('Y-m-d',strtotime($row["worship_date"]));?></td>
+					<td><?echo $row["worship_date_str"];?></td>
 
 					<td>
 						<?if($row["youtube_url"]!=null){?>

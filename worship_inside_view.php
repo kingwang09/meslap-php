@@ -16,8 +16,10 @@
 	$rowIndex = ($cPage-1)*$rowPerPage;	//Row Index
 	
 	$whereSql = "";
+	$orderBySql = " order by id desc";
 	if($cCategory != null){
 		$whereSql = $whereSql." where category='".$cCategory."' ";
+		$orderBySql = " order by id asc";
 	}
 
 	//Worship Logic
@@ -44,8 +46,8 @@
 					@rownum := @rownum + 1 AS rowId
 					FROM cmm_worship c, (SELECT @rownum := 0) r"
 					.$whereSql
-					." order by worship_date desc
-			)w limit ".$rowIndex.", 5";
+					.$orderBySql
+			.")w limit ".$rowIndex.", 5";
 	$statement = $db->prepare($sql);
 	$statement->execute();
 	$worships = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -61,13 +63,17 @@
 function viewPage(rid){
 	var form = parent.document.worshipForm;
 	form.cPage.value = "<?echo $cPage?>";
+	form.cCategory.value = "<?echo $cCategory?>";
 	form.rId.value = rid;
 	form.submit();
 }
 function changeCategory(){
 	var $selectedVal = $("#category option:selected").val();
-	alert($selectedVal);
-	location.href="./worship_inside_view.php?cPage=<?echo $cPage?>&category="+$selectedVal;
+	var form = parent.document.worshipForm;
+	form.cPage.value = "1";
+	form.cCategory.value = $selectedVal;
+	form.rId.value = 1;
+	form.submit();
 }
 </script>
 <!-- iFrame start-->
@@ -76,7 +82,7 @@ function changeCategory(){
     	<div class="col-md-12">
 	    	<div class="pull-right">
 	            <select class="form-control" id="category" onChange="changeCategory()">
-	                <option>주제별 설교보기</option>
+	                <option value="">주제별 설교보기</option>
 					<?foreach($categorys as $category){?>
 						<?if($category["category"] == $cCategory){?>
 							<option value="<?echo $category["category"]?>" selected><?echo $category["category"]?></option>
@@ -105,7 +111,7 @@ function changeCategory(){
 	             	<!-- <span class="label label-default">New</span>  -->
 	             </div>
 	             <div style="word-break: break-all">
-	                 <?echo $row["bible_index"];?> <br/><small><?echo date('Y-m-d', strtotime($row["worship_date"]))?></small>
+	                 <?echo $row["bible_index"];?> <br/><small><?echo $row["worship_date_str"]?></small>
 	             </div>
 	         </div>
 	     </div>
@@ -114,7 +120,7 @@ function changeCategory(){
 		<ul class='pagination'>
 		<li><a href="worship_inside_view.php?cPage=1&category=<?echo $cCategory?>">첫페이지</a></li>
 		<?
-			if(($cPage-1) < 0){
+			if(($cPage-1) <= 0){
 		?>
 			<li class="disabled"><a href="#">&laquo;</a></li>
 		<?
@@ -125,7 +131,7 @@ function changeCategory(){
 			}
 		?>
 		
-		<?for($page=$cPage;$page<=$pageEnd;$page++){?>
+		<?for($page=1;$page<=$pageEnd;$page++){?>
 			<li class="<?if($page==$cPage){?>active<?}?>"><a href="worship_inside_view.php?cPage=<?echo $page?>&category=<?echo $cCategory?>"><?echo $page?></a></li>
 		<?}?>
 
