@@ -52,7 +52,7 @@
 	$statement->execute();
 	$worships = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-	$categorySql =	"select category from cmm_worship group by category having category is not null";
+	$categorySql =	"select name from category order by order";
 	$categoryStatement = $db->prepare($categorySql);
 	$categoryStatement->execute();
 	$categorys = $categoryStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -107,7 +107,15 @@ function changeCategory(){
 				<?}?>
 	         </a>
 	         <div class="media-body" style="padding-left:25px;padding-top:25px">
-	             <div class="h5 media-heading"><b><a href="javascript:viewPage('<?echo $row["rowId"];?>')"><?echo $row["title"];?></a></b>
+	             <div class="h5 media-heading">
+				 	<b>
+					 <a href="javascript:viewPage('<?echo $row["rowId"];?>')">
+					 	<?echo $row["title"];?> 
+						<?if($row["category"] != ""){?>
+				 	  		- <?echo $row["category"];?>
+						<?}?>
+					 </a>
+					 </b>
 	             	<!-- <span class="label label-default">New</span>  -->
 	             </div>
 	             <div style="word-break: break-all">
